@@ -1,4 +1,3 @@
-
 .container {
   width: 100vw;
   height: 100vh;
@@ -6,20 +5,15 @@
   position: relative;
 }
 
-.bgImg {
+.bg {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  object-fit: contain;
+  background: url('/pepe-room.png') no-repeat center center fixed;
+  background-size: cover;
   z-index: -1;
-}
-
-@media screen and (orientation: portrait) {
-  .bgImg {
-    object-fit: cover;
-  }
 }
 
 .overlay {
@@ -142,9 +136,92 @@
   background: #00cc77;
 }
 
-.aboutWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+/* Landscape-specific adjustments */
+@media screen and (orientation: landscape) {
+  .dotCommunity, .dotAbout, .dotTrade, .dotBong {
+    width: 14px;
+    height: 14px;
+  }
+
+  .copyBox {
+    top: 52%;
+    left: 78%;
+    transform: none;
+  }
+
+  .copyButton {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .aboutWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .aboutWrapper::after {
+    content: "“Pepe was once a meme. Then he got baked, renounced the devs, burned the keys, and became legend — one puff at a time.”";
+    display: block;
+    color: #00ff99;
+    font-size: 14px;
+    margin-top: 16px;
+    max-width: 90%;
+    line-height: 1.4;
+    font-style: italic;
+  }
+}
+
+/* Vertical (Portrait) fix pentru telefoane */
+
+
+  .dotCommunity, .dotAbout, .dotTrade, .dotBong {
+    width: 14px;
+    height: 14px;
+  }
+
+  .dotCommunity { top: 12%; left: 66%; }
+  .dotAbout { top: 9%; left: 21%; }
+  .dotTrade { top: 52%; left: 72%; }
+  .dotBong { top: 55%; left: 40%; }
+
+  .copyBox {
+    top: 54%;
+    left: 79%;
+    transform: none;
+  }
+
+  .copyButton {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .aboutWrapper::after {
+    content: "“Pepe was once a meme. Then he got baked, renounced the devs, burned the keys, and became legend — one puff at a time.”";
+    color: #00ff99;
+    font-size: 12px;
+    margin-top: 10px;
+    max-width: 95%;
+    line-height: 1.3;
+    font-style: italic;
+    display: block;
+    text-align: center;
+  }
+}
+
+
+@media screen and (orientation: portrait) {
+  .bg {
+    background-size: contain !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-color: black !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
 }
