@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import styles from '../styles/styles.module.css';
 
@@ -7,11 +8,11 @@ export default function Home() {
   const [showAbout, setShowAbout] = useState(false);
   const [muted, setMuted] = useState(false);
   const [audio] = useState(() => {
-  if (typeof Audio === "undefined") return null;
-  const a = new Audio('/ambient.mp3');
-  a.volume = 0.3;
-  return a;
-});
+    if (typeof Audio === "undefined") return null;
+    const a = new Audio('/ambient.mp3');
+    a.volume = 0.3;
+    return a;
+  });
   const [bong] = useState(typeof Audio !== "undefined" ? new Audio('/bong.mp3') : null);
 
   useEffect(() => {
@@ -20,15 +21,6 @@ export default function Home() {
       if (!muted) audio.play();
     }
   }, [audio]);
-
-  useEffect(() => {
-    document.body.style.overflow = 'hidden';
-    document.documentElement.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = 'auto';
-      document.documentElement.style.overflow = 'auto';
-    };
-  }, []);
 
   const toggleMute = () => {
     if (!audio) return;
@@ -57,8 +49,9 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.scrollWrapper}>
       <div className={styles.bg}></div>
+      <div className={styles.scrollArrow}>Scroll ➝</div>
 
       <div className={styles.dotCommunity} onClick={() => setShowCommunity(true)} />
       <div className={styles.dotAbout} onClick={() => setShowAbout(true)} />
