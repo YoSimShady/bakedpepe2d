@@ -48,7 +48,9 @@ export default function Home() {
     <div className={styles.container}>
       <div className={styles.bg}></div>
 
-      {/* Butoane X și Telegram restaurate */}
+      <div className={styles.scrollHint}>Scroll ➝</div>
+      <div className={styles.rotateHint}>🔄 Rotate</div>
+
       <a className={styles.xDot} href="https://x.com" target="_blank" />
       <a className={styles.tgDot} href="https://t.me/telegram" target="_blank" />
 

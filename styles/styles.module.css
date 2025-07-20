@@ -1,4 +1,5 @@
 
+/* Desktop-ul și landscape-ul rămân neatinse */
 .container {
   width: 100vw;
   height: 100vh;
@@ -17,50 +18,72 @@
   z-index: -1;
 }
 
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 20;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Portrait (mobil vertical) - scroll orizontal + zoom-out + iconițe */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  .container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+
+  .bg {
+    position: absolute;
+    width: 1600px;
+    height: 100vh;
+    background: url('/pepe-room.png') no-repeat center center;
+    background-size: contain;
+    background-color: black;
+    z-index: -1;
+  }
+
+  .scrollHint {
+    position: absolute;
+    bottom: 12px;
+    left: 16px;
+    font-size: 14px;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    padding: 4px 10px;
+    border-radius: 20px;
+    animation: scrollArrow 1.5s ease-in-out infinite;
+    z-index: 50;
+    user-select: none;
+    pointer-events: none;
+    font-family: Arial, sans-serif;
+  }
+
+  .rotateHint {
+    position: absolute;
+    bottom: 12px;
+    left: 140px;
+    font-size: 14px;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    padding: 4px 10px;
+    border-radius: 20px;
+    animation: rotateAnim 2.5s ease-in-out infinite;
+    z-index: 50;
+    user-select: none;
+    pointer-events: none;
+    font-family: Arial, sans-serif;
+  }
+
+  @keyframes scrollArrow {
+    0%   { opacity: 0.3; transform: translateX(0); }
+    50%  { opacity: 1; transform: translateX(10px); }
+    100% { opacity: 0.3; transform: translateX(0); }
+  }
+
+  @keyframes rotateAnim {
+    0%   { opacity: 0.3; transform: rotate(0deg); }
+    50%  { opacity: 1; transform: rotate(90deg); }
+    100% { opacity: 0.3; transform: rotate(0deg); }
+  }
 }
 
-.communityBoard {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-}
-
-.close {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  font-size: 28px;
-  color: white;
-  background: black;
-  padding: 5px 12px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 25;
-}
-
-.volumeButton {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 24px;
-  color: white;
-  cursor: pointer;
-  z-index: 10;
-  user-select: none;
-  touch-action: none;
-}
-
-/* All interactive dots glow & pulse */
+/* Puncte interactive - neschimbate */
 .dotCommunity, .dotAbout, .dotTrade, .dotBong {
   position: absolute;
   width: 20px;
@@ -82,25 +105,10 @@
   100% { box-shadow: 0 0 5px #fff, 0 0 10px #fff; }
 }
 
-.dotCommunity {
-  top: 12%;
-  left: 66%;
-}
-
-.dotAbout {
-  top: 9%;
-  left: 21%;
-}
-
-.dotTrade {
-  top: 52%;
-  left: 72%;
-}
-
-.dotBong {
-  top: 55%;
-  left: 40%;
-}
+.dotCommunity { top: 12%; left: 66%; }
+.dotAbout { top: 9%; left: 21%; }
+.dotTrade { top: 52%; left: 72%; }
+.dotBong { top: 55%; left: 40%; }
 
 .xDot {
   position: absolute;
@@ -130,7 +138,6 @@
   opacity: 0;
 }
 
-
 .tradeDot {
   top: 40%;
   left: 49%;
@@ -141,4 +148,3 @@
   z-index: 15;
   cursor: pointer;
 }
-
