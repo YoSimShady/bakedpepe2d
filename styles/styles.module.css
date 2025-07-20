@@ -137,7 +137,14 @@
   background: #00cc77;
 }
 
-/* Landscape-specific adjustments */
+.aboutWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* LANDSCAPE fix */
 @media screen and (orientation: landscape) {
   .dotCommunity, .dotAbout, .dotTrade, .dotBong {
     width: 14px;
@@ -155,14 +162,6 @@
     font-size: 12px;
   }
 
-  .aboutWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 20px;
-  }
-
   .aboutWrapper::after {
     content: "“Pepe was once a meme. Then he got baked, renounced the devs, burned the keys, and became legend — one puff at a time.”";
     display: block;
@@ -175,12 +174,12 @@
   }
 }
 
-/* Vertical (Portrait) fix pentru telefoane */
+/* PORTRAIT fix complet */
 @media screen and (orientation: portrait) {
   .bg {
     background-size: contain !important;
-    background-position: top center !important;
     background-repeat: no-repeat !important;
+    background-position: top center !important;
     height: auto !important;
     width: 100vw !important;
     min-height: 100vh !important;
