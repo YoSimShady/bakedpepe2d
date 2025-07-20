@@ -1,37 +1,61 @@
 
-.scrollWrapper {
+/* Default desktop view */
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-  position: relative;
-}
-
-.bg {
-  width: 1920px;
-  height: 100vh;
-  background: url('/pepe-room.png') no-repeat center center;
+  background: url('/pepe-room.png') no-repeat center center fixed;
   background-size: cover;
+  z-index: -1;
 }
 
-.scrollArrow {
+/* Scrollable zone for mobile only */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  .scrollContainer {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .bg {
+    position: relative;
+    width: 1600px;
+    height: 100vh;
+    background: url('/pepe-room.png') no-repeat center center;
+    background-size: contain;
+    background-color: black;
+    z-index: 1;
+  }
+}
+
+/* Puncte interactive */
+.dotCommunity, .dotAbout, .dotTrade, .dotBong {
   position: absolute;
-  bottom: 12px;
-  left: 12px;
-  color: white;
-  font-size: 16px;
-  z-index: 30;
-  animation: pulseArrow 1.5s infinite;
-  font-family: Arial, sans-serif;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 4px 10px;
-  border-radius: 20px;
-  pointer-events: none;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
+  animation: pulseGlow 1.6s ease-in-out infinite;
+  cursor: pointer;
+  z-index: 10;
+  pointer-events: auto;
+  user-select: none;
+  touch-action: none;
 }
 
-@keyframes pulseArrow {
-  0%   { opacity: 0.2; transform: translateX(0); }
-  50%  { opacity: 1; transform: translateX(10px); }
-  100% { opacity: 0.2; transform: translateX(0); }
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 5px #fff, 0 0 10px #fff; }
+  50% { box-shadow: 0 0 15px #fff, 0 0 25px #fff; }
+  100% { box-shadow: 0 0 5px #fff, 0 0 10px #fff; }
 }
+
+.dotCommunity { top: 12%; left: 66%; }
+.dotAbout { top: 9%; left: 21%; }
+.dotTrade { top: 52%; left: 72%; }
+.dotBong { top: 55%; left: 40%; }
