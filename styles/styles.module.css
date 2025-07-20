@@ -175,15 +175,7 @@
 }
 
 /* Vertical (Portrait) fix pentru telefoane */
-@media screen and (orientation: portrait) {
-  .bg {
-    background-size: contain !important;
-    background-position: top center !important;
-    background-repeat: no-repeat !important;
-    height: auto !important;
-    width: 100vw !important;
-    min-height: 100vh !important;
-  }
+
 
   .dotCommunity, .dotAbout, .dotTrade, .dotBong {
     width: 14px;
@@ -225,8 +217,11 @@
     background-size: contain !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
-    height: 100vh !important;
-    width: 100vw !important;
     background-color: black !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    position: fixed;
+    top: 0;
+    left: 0;
   }
 }
