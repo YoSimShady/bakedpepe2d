@@ -1,4 +1,3 @@
-
 .container {
   width: 100vw;
   height: 100vh;
@@ -217,5 +216,17 @@
     font-style: italic;
     display: block;
     text-align: center;
+  }
+}
+
+
+@media screen and (orientation: portrait) {
+  .bg {
+    background-size: contain !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    height: 100vh !important;
+    width: 100vw !important;
+    background-color: black !important;
   }
 }
