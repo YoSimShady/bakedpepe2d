@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import styles from '../styles/styles.module.css';
 
@@ -8,11 +7,11 @@ export default function Home() {
   const [showAbout, setShowAbout] = useState(false);
   const [muted, setMuted] = useState(false);
   const [audio] = useState(() => {
-    if (typeof Audio === "undefined") return null;
-    const a = new Audio('/ambient.mp3');
-    a.volume = 0.3;
-    return a;
-  });
+  if (typeof Audio === "undefined") return null;
+  const a = new Audio('/ambient.mp3');
+  a.volume = 0.3;
+  return a;
+});
   const [bong] = useState(typeof Audio !== "undefined" ? new Audio('/bong.mp3') : null);
 
   useEffect(() => {
@@ -59,7 +58,7 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <img src="/pepe-room.png" className={styles.bgImg} alt="Background" />
+      <div className={styles.bg}></div>
 
       <div className={styles.dotCommunity} onClick={() => setShowCommunity(true)} />
       <div className={styles.dotAbout} onClick={() => setShowAbout(true)} />
