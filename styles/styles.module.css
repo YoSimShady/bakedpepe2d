@@ -6,15 +6,20 @@
   position: relative;
 }
 
-.bg {
+.bgImg {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: url('/pepe-room.png') no-repeat center center fixed;
-  background-size: cover;
+  object-fit: contain;
   z-index: -1;
+}
+
+@media screen and (orientation: portrait) {
+  .bgImg {
+    object-fit: cover;
+  }
 }
 
 .overlay {
@@ -60,11 +65,10 @@
   touch-action: none;
 }
 
-/* All interactive dots glow & pulse */
 .dotCommunity, .dotAbout, .dotTrade, .dotBong {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   background: white;
   border-radius: 50%;
   box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
@@ -82,49 +86,31 @@
   100% { box-shadow: 0 0 5px #fff, 0 0 10px #fff; }
 }
 
-.dotCommunity {
-  top: 12%;
-  left: 66%;
-}
+.dotCommunity { top: 12%; left: 66%; }
+.dotAbout { top: 9%; left: 21%; }
+.dotTrade { top: 52%; left: 72%; }
+.dotBong { top: 55%; left: 40%; }
 
-.dotAbout {
-  top: 9%;
-  left: 21%;
-}
-
-.dotTrade {
-  top: 52%;
-  left: 72%;
-}
-
-.dotBong {
-  top: 55%;
-  left: 40%;
-}
-
-/* X and Telegram are now invisible (but still clickable) */
-.xDot {
-  top: 42%;
-  left: 24%;
-  width: 85px;
-  height: 85px;
-  opacity: 0;
+.xDot, .tgDot, .tradeDot {
   position: absolute;
-  z-index: 15;
-  cursor: pointer;
+  z-index: 20;
+}
+
+.xDot {
+  top: 35%;
+  left: 17%;
+  width: 100px;
+  height: 100px;
+  opacity: 0;
 }
 
 .tgDot {
-  top: 41%;
-  left: 33%;
-  width: 95px;
-  height: 95px;
+  top: 34.5%;
+  left: 29%;
+  width: 100px;
+  height: 90px;
   opacity: 0;
-  position: absolute;
-  z-index: 15;
-  cursor: pointer;
 }
-
 
 .tradeDot {
   top: 40%;
@@ -132,8 +118,33 @@
   width: 330px;
   height: 220px;
   opacity: 0;
-  position: absolute;
-  z-index: 15;
-  cursor: pointer;
 }
 
+.copyBox {
+  position: absolute;
+  top: 52%;
+  left: 78%;
+  transform: translateX(-50%);
+  z-index: 30;
+}
+
+.copyButton {
+  background: #00ff99;
+  color: black;
+  border: none;
+  padding: 8px 14px;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.copyButton:hover {
+  background: #00cc77;
+}
+
+.aboutWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
