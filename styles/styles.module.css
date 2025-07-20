@@ -1,0 +1,221 @@
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('/pepe-room.png') no-repeat center center fixed;
+  background-size: cover;
+  z-index: -1;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.communityBoard {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 28px;
+  color: white;
+  background: black;
+  padding: 5px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 25;
+}
+
+.volumeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+  user-select: none;
+  touch-action: none;
+}
+
+.dotCommunity, .dotAbout, .dotTrade, .dotBong {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
+  animation: pulseGlow 1.6s ease-in-out infinite;
+  cursor: pointer;
+  z-index: 10;
+  pointer-events: auto;
+  user-select: none;
+  touch-action: none;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 5px #fff, 0 0 10px #fff; }
+  50% { box-shadow: 0 0 15px #fff, 0 0 25px #fff; }
+  100% { box-shadow: 0 0 5px #fff, 0 0 10px #fff; }
+}
+
+.dotCommunity { top: 12%; left: 66%; }
+.dotAbout { top: 9%; left: 21%; }
+.dotTrade { top: 52%; left: 72%; }
+.dotBong { top: 55%; left: 40%; }
+
+.xDot, .tgDot, .tradeDot {
+  position: absolute;
+  z-index: 20;
+}
+
+.xDot {
+  top: 35%;
+  left: 17%;
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+}
+
+.tgDot {
+  top: 34.5%;
+  left: 29%;
+  width: 100px;
+  height: 90px;
+  opacity: 0;
+}
+
+.tradeDot {
+  top: 40%;
+  left: 49%;
+  width: 330px;
+  height: 220px;
+  opacity: 0;
+}
+
+.copyBox {
+  position: absolute;
+  top: 52%;
+  left: 78%;
+  transform: translateX(-50%);
+  z-index: 30;
+}
+
+.copyButton {
+  background: #00ff99;
+  color: black;
+  border: none;
+  padding: 8px 14px;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.copyButton:hover {
+  background: #00cc77;
+}
+
+/* Landscape-specific adjustments */
+@media screen and (orientation: landscape) {
+  .dotCommunity, .dotAbout, .dotTrade, .dotBong {
+    width: 14px;
+    height: 14px;
+  }
+
+  .copyBox {
+    top: 52%;
+    left: 78%;
+    transform: none;
+  }
+
+  .copyButton {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .aboutWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .aboutWrapper::after {
+    content: "“Pepe was once a meme. Then he got baked, renounced the devs, burned the keys, and became legend — one puff at a time.”";
+    display: block;
+    color: #00ff99;
+    font-size: 14px;
+    margin-top: 16px;
+    max-width: 90%;
+    line-height: 1.4;
+    font-style: italic;
+  }
+}
+
+/* Vertical (Portrait) fix pentru telefoane */
+@media screen and (orientation: portrait) {
+  .bg {
+    background-size: contain !important;
+    background-position: top center !important;
+    background-repeat: no-repeat !important;
+    height: auto !important;
+    width: 100vw !important;
+    min-height: 100vh !important;
+  }
+
+  .dotCommunity, .dotAbout, .dotTrade, .dotBong {
+    width: 14px;
+    height: 14px;
+  }
+
+  .dotCommunity { top: 12%; left: 66%; }
+  .dotAbout { top: 9%; left: 21%; }
+  .dotTrade { top: 52%; left: 72%; }
+  .dotBong { top: 55%; left: 40%; }
+
+  .copyBox {
+    top: 54%;
+    left: 79%;
+    transform: none;
+  }
+
+  .copyButton {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .aboutWrapper::after {
+    content: "“Pepe was once a meme. Then he got baked, renounced the devs, burned the keys, and became legend — one puff at a time.”";
+    color: #00ff99;
+    font-size: 12px;
+    margin-top: 10px;
+    max-width: 95%;
+    line-height: 1.3;
+    font-style: italic;
+    display: block;
+    text-align: center;
+  }
+}

@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About – BakedPepe</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: white;
+      font-family: monospace;
+      text-align: center;
+    }
+
+    .wrapper {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      max-width: 1920px;
+    }
+
+    .bg-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .copy-container {
+      position: absolute;
+      top: 22%;
+      left: 54.5%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 6px 14px;
+      border-radius: 8px;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .label {
+      font-size: 14px;
+      color: #00ff99;
+    }
+
+    .copy-btn {
+      background: #00ff99;
+      color: black;
+      border: none;
+      font-size: 13px;
+      padding: 6px 10px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .copy-btn:hover {
+      background: #00cc77;
+    }
+
+    @media (max-width: 768px) {
+      .copy-container {
+        top: 25%;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <img src="about-background.png" alt="About BakedPepe" class="bg-img" />
+    <div class="copy-container">
+      <span class="label">Contract Address:</span>
+      <button class="copy-btn" onclick="copyAddress()">📋 Copy Address</button>
+    </div>
+  </div>
+
+  <script>
+    function copyAddress() {
+      const address = "0x1234567890abcdef1234567890adcfdcf12345678";
+      navigator.clipboard.writeText(address).then(() => {
+        alert("Address copied to clipboard!");
+      });
+    }
+  </script>
+</body>
+</html>
