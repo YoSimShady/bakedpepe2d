@@ -5,7 +5,6 @@ import styles from '../styles/styles.module.css';
 export default function Home() {
   const [showCommunity, setShowCommunity] = useState(false);
   const [showTrade, setShowTrade] = useState(false);
-  const [showAbout, setShowAbout] = useState(false);
   const [muted, setMuted] = useState(false);
   const [audio] = useState(typeof Audio !== "undefined" ? new Audio('/ambient.mp3') : null);
   const [bong] = useState(typeof Audio !== "undefined" ? new Audio('/bong.mp3') : null);
@@ -45,22 +44,12 @@ export default function Home() {
     }
   };
 
-  const copyAddress = () => {
-    const address = "0x1234567890abcdef1234567890adcfdcf12345678";
-    navigator.clipboard.writeText(address).then(() => {
-      alert("Address copied to clipboard!");
-    });
-  };
-
   return (
     <div className={styles.container}>
       <div className={styles.bg}></div>
 
-      <div className={styles.scrollHint}>Scroll ➝</div>
-      <div className={styles.rotateHint}>🔄 Rotate</div>
-
       <div className={styles.dotCommunity} onClick={() => setShowCommunity(true)} />
-      <div className={styles.dotAbout} onClick={() => setShowAbout(true)} />
+      <div className={styles.dotAbout} />
       <div className={styles.dotTrade} onClick={() => setShowTrade(true)} />
       <div className={styles.dotBong} onClick={playBong} onMouseEnter={playBong} />
 
@@ -82,18 +71,6 @@ export default function Home() {
           <img src="/trade-background.png" className={styles.communityBoard} alt="TRADE" />
           <a className={styles.tradeDot} href="https://dexscreener.com" target="_blank" />
           <div className={styles.close} onClick={() => setShowTrade(false)}>✕</div>
-        </div>
-      )}
-
-      {showAbout && (
-        <div className={styles.overlay}>
-          <div className={styles.aboutWrapper}>
-            <img src="/about-background.png" className={styles.communityBoard} alt="ABOUT" />
-            <div className={styles.copyBox}>
-              <button className={styles.copyButton} onClick={copyAddress}>📋 Copy Address</button>
-            </div>
-          </div>
-          <div className={styles.close} onClick={() => setShowAbout(false)}>✕</div>
         </div>
       )}
     </div>
