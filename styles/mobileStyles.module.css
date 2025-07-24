@@ -1,0 +1,162 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 19;
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  transform: scale(1.08);
+  transform-origin: center;
+  background-color: black;
+  z-index: -1;
+}
+
+.volumeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Dots */
+.dotAboutMobile, .dotCommunityMobile, .dotTradeMobile, .dotBongMobile {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
+  animation: pulseGlow 1.6s ease-in-out infinite;
+  cursor: pointer;
+  z-index: 10;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 5px #fff, 0 0 10px #fff; }
+  50% { box-shadow: 0 0 15px #fff, 0 0 25px #fff; }
+  100% { box-shadow: 0 0 5px #fff, 0 0 10px #fff; }
+}
+
+.dotAboutMobile { top: 10%; left: 20%; }
+.dotCommunityMobile { top: 13%; left: 65%; }
+.dotTradeMobile { top: 52%; left: 70%; }
+.dotBongMobile { top: 58%; left: 40%; }
+
+/* Overlay zone */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlayImg {
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  background-color: black;
+}
+
+.copyBox {
+  position: absolute;
+  top: 52%;
+  left: 72%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.copyButton {
+  background: #00ff99;
+  color: black;
+  border: none;
+  padding: 8px 14px;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  color: white;
+  background: black;
+  padding: 4px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* link zones */
+
+
+
+
+
+
+
+.overlayImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  background-color: black;
+  z-index: -1;
+}
+
+
+.xDot {
+  position: absolute;
+  top: 35%;
+  left: 16%;
+  width: 30px;
+  height: 84px;
+  opacity: 0;
+  z-index: 2000;
+  
+  
+}
+
+.tgDot {
+  position: absolute;
+  top: 34.5%;
+  left: 28%;
+  width: 30px;
+  height: 88px;
+  opacity: 0;
+  z-index: 2000;
+  
+  
+}
+
+.tradeDot {
+  top: 40%;
+  left: 47%;
+  width: 100px;
+  height: 250px;
+  opacity: 0;
+  position: absolute;
+  z-index: 2000;
+  
+  
+}
