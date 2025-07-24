@@ -9,6 +9,7 @@
   "dependencies": {
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "use-sound": "^5.0.0"
   }
 }
