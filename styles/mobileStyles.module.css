@@ -75,8 +75,8 @@
 
 .copyBox {
   position: absolute;
-  top: 52%;
-  left: 72%;
+  top: 46%;
+  left: 60%;
   transform: translateX(-50%);
   z-index: 1000;
 }
@@ -87,7 +87,7 @@
   border: none;
   padding: 8px 14px;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 13px;
   border-radius: 6px;
   cursor: pointer;
 }

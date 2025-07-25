@@ -60,7 +60,7 @@ export default function DesktopView() {
       {showCommunity && (
         <div className={styles.overlay}>
           <img src="/community_with_quote_final.png" className={styles.communityBoard} alt="COMMUNITY" />
-          <a className={styles.xDot} href="https://x.com" target="_blank" />
+          <a className={styles.xDot} href="https://x.com/BPepe60603" target="_blank" />
           <a className={styles.tgDot} href="https://t.me/+MWrZMShOHxY2ODdk" target="_blank" />
           <div className={styles.close} onClick={() => setShowCommunity(false)}>✕</div>
         </div>
@@ -79,7 +79,7 @@ export default function DesktopView() {
           <img src="/about-background.png" className={styles.communityBoard} alt="ABOUT" />
           <div className={styles.copyBox}>
             <button className={styles.copyButton} onClick={() => {
-              navigator.clipboard.writeText("0x000000000000000000000000000000000000dEaD");
+              navigator.clipboard.writeText("0x009dc36a04aebc6f536d3104583d1ea3382fec9e");
             }}>Copy Address</button>
           </div>
           <div className={styles.close} onClick={() => setShowAbout(false)}>✕</div>

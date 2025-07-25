@@ -41,6 +41,19 @@ export default function MobileView() {
     }
   };
 
+  const copyAddress = () => {
+  const address = "0x009Dc36A04aeBc6F536d3104583D1ea3382FEc9E";
+  const input = document.createElement("input");
+  input.value = address;
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999); // pentru iOS
+  document.execCommand("copy");
+  document.body.removeChild(input);
+  alert("Address copied!");
+};
+
+
   return (
     <div className={styles.container}>
       <img src="/FIXED_pepe-room.png" className={styles.bg} alt="background" />
@@ -57,7 +70,7 @@ export default function MobileView() {
       {showCommunity && (
         <div className={styles.overlay}>
           <img src="/FIXED_community_with_quote_final.png" className={styles.overlayImg} alt="COMMUNITY" />
-          <a className={styles.xDot} href="https://x.com" target="_blank" />
+          <a className={styles.xDot} href="https://x.com/BPepe60603" target="_blank" />
           <a className={styles.tgDot} href="https://t.me/+MWrZMShOHxY2ODdk" target="_blank" />
           <div className={styles.close} onClick={() => setShowCommunity(false)}>✕</div>
         </div>
@@ -75,9 +88,9 @@ export default function MobileView() {
         <div className={styles.overlay}>
           <img src="/FIXED_about-background.png" className={styles.overlayImg} alt="ABOUT" />
           <div className={styles.copyBox}>
-            <button className={styles.copyButton} onClick={() => {
-              navigator.clipboard.writeText("0x000000000000000000000000000000000000dEaD");
-            }}>Copy Address</button>
+            <button className={styles.copyButton} onClick={copyAddress}>
+              Copy Address
+            </button>
           </div>
           <div className={styles.close} onClick={() => setShowAbout(false)}>✕</div>
         </div>
@@ -85,3 +98,4 @@ export default function MobileView() {
     </div>
   );
 }
+
